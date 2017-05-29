@@ -3,62 +3,76 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Trivia Game</title>
+	<title>Simpsons Trivia Game</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Permanent+Marker|Press+Start+2P" rel="stylesheet">
 </head>
 
 <body>
+
 	<div class="container">
+		<div class="cstm-header">
+			<div class="title row"> 
+				<h1 class="text-center">I Will Play Simpsons Trivia</h1>
+			</div>
 
-		<div class="header row">
-			<header class="cstm-header"> 
-				<h1 class="text-center">Holy Cow! Simpson's Trivia</h1>
-			</header>
-		</div>
-		
-		<img id="init" class="center-block" src="assets/images/redButton.png" alt="red button">
+			<div class="content row">
+				<div class="text-center">
+					<h2 id="question"></h2>
+				</div>
+			</div>
 
-		<div class="content row">
-			<div class="text-center">
-			  <h2 id="timer"></h2>
+			<div class="reveal row">
+				<div class="text-center">
+					<h2 id="answer"></h2>
+				</div>
 			</div>
 		</div>
 
-		<div class="content row">
-			<div class="text-center">
-				<span id="question"></span>
-			</div>
-		</div>
+		<div class="container">
+			
+			<img id="init" class="center-block" src="assets/images/redButton.png" alt="red button">
+			<img id="warn" class="center-block" src="assets/images/redButtonAni.gif" alt="red button">
 
-		<div class="content row">
-			<div class="text-center">
-				<button id="choice1" type="button" class="btn btn-default btn-round-lg btn-block active choices"></button>
-				<button id="choice2" type="button" class="btn btn-default btn-round-lg btn-block active choices"></button>
-				<button id="choice3" type="button" class="btn btn-default btn-round-lg btn-block active choices"></button>
-				<button id="choice4" type="button" class="btn btn-default btn-round-lg btn-block active choices"></button>
+			<div class="content row">
+				<div>
+				  <p id="timer" class="text-center"></p>
+				</div>
 			</div>
-		</div>
-		
-		<div class="reveal row">
-			<div class="text-center">
-				<p id="answer"></p>
-				<div id="answer-img"></div>
-			</div>
-		</div>
 
-		<div class="result row">
-			<div class="text-center">
-				<p id="correct"></p>
-				<br>
-				<p id="wrong"></p>
-				<br>
-				<p id="unanswered"></p>
+			<div class="content row">
+				<div class="text-center">
+					<button id="choice1" type="button" class="btn btn-round-lg btn-block active choices"></button>
+					<button id="choice2" type="button" class="btn btn-round-lg btn-block active choices"></button>
+					<button id="choice3" type="button" class="btn btn-round-lg btn-block active choices"></button>
+					<button id="choice4" type="button" class="btn btn-round-lg btn-block active choices"></button>
+				</div>
+			</div>
+			
+			<div class="reveal row">
+				<div class="text-center">
+					<div id="answer-img""></div>
+				</div>
+			</div>
+
+			<div class="result row">
+				<div class="text-center">
+					<p id="correct"></p>
+					<br>
+					<p id="wrong"></p>
+					<br>
+					<p id="unanswered"></p>
+				</div>
 			</div>
 		</div>
 	</div>
+	<audio id="theme"><source src="assets/audio/themeSong.mp3"></source></audio>
+	<audio id="warning"><source src="assets/audio/warning.mp3"></source></audio>
+	<audio id="wahoo"><source src="assets/audio/wahoo.wav"></source></audio>
+	<audio id="doh"><source src="assets/audio/doh1.mp3"></source></audio>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
 	</script>
