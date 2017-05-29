@@ -1,0 +1,7 @@
+.btn-round-lg {
+	border-radius: 22.5px;
+}
+
+.btn.active:focus {
+	outline: 0;
+}

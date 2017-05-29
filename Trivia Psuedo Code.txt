@@ -1,0 +1,32 @@
+Trivia Psuedo Code
+	1) Set up basic divs / buttons in html
+		a) container
+		b) header
+		c) timer div
+		d) question div
+		e) answer div & buttons
+		f) start button
+	2) Click button to start game
+		a) loads 1st question and multiple choice answers in clickable buttons
+		b) starts timer with 30 second countdown
+		c) start music
+	3) user selects answer and clicks button
+		a) stop timer
+		b) evaluate if correct answer
+			- if correct
+				- display "Correct" for a few seconds
+				- display gif or video clip for a few seconds
+				- increment correct answers var by 1
+			- if incorrect
+				- display "Incorrect" for a few seconds
+				- display gif or video clip for a few seconds
+				- increment Incorrect answers var by 1
+			- if timer runs out
+				- display correct answer 
+				- increment Unanswered variable by 1
+	4) automatically pull up next questions and repeat #3.
+	5) once all questions are answered
+		a) display total correct & incorrect answers
+
+
+Questions / Answers:
