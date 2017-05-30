@@ -1,4 +1,12 @@
-$(document).ready(function(){
+$(document).ready(function() {
+
+$(".content").hide();
+$(".reveal").hide();
+$("#warn").hide();
+$("#warning").trigger('load');
+$("#theme").trigger('load');
+$("#wahoo").trigger('load');
+$("#doh").trigger('load');
 
 var timer = 10;
 var correct = 0;
@@ -7,12 +15,19 @@ var noAnswer = 0;
 var questionindex = 0;
 var intervalId;
 var quiz = {
-	question: ['What does the phone number to Moes Tavern spell?', 'Who was the first celebrity to play as themself on The Simpsons?', '3rdQuestion', '4thQuestion', '5thQuestion', '6thQuestion', '7thQuestion', '8thQuestion', '9thQuestion', '10thQuestion'],
-	answer: ['C: S-M-I-T-H-E-R-S', 'B: Tony Bennett', '3rdChoiceA', '4thChoiceC', '5thChoiceD', '6thChoiceA', '7thChoiceC', '8thChoiceD', '9thChoiceA', '10thChoiceD'],
-	choice1: ['A: L-O-V-E D-U-F-F', 'A: Elizabeth Taylor', '3rdChoiceA','4thChoiceA', '5thChoiceA', '6thChoiceA', '7thChoiceA', '8thChoiceA', '9thChoiceA', '10thChoiceA'],
-	choice2: ['B: M-O-E-R-O-C-K-S', 'B: Tony Bennett', '3rdChoiceB','4thChoiceB', '5thChoiceB', '6thChoiceB', '7thChoiceB', '8thChoiceB', '9thChoiceB', '10thChoiceB'],
-	choice3: ['C: S-M-I-T-H-E-R-S', 'C: Mick Jagger', '3rdChoiceC','4thChoiceC', '5thChoiceC', '6thChoiceC', '7thChoiceC', '8thChoiceC', '9thChoiceC', '10thChoiceC'],
-	choice4: ['D: I-M-B-A-R-N-E-Y', 'D: Phil Hartman', '3rdChoiceD','4thChoiceD', '5thChoiceD', '6thChoiceD', '7thChoiceD', '8thChoiceD', '9thChoiceD', '10thChoiceD'],
+	question: ['What does the phone number to Moes Tavern spell?', 'Who was the first celebrity to play as themself on The Simpsons?', 'Where did Homer get his alter ego nickname, Max Powers?', 
+			'In The Treehouse of Horrors 10, what rocker narrates the "Legend of Batterface"?', 'When Moe mistook Marge for a prank caller, what was the name she used?', 'Who is the only character on The Simpsons that has five fingers?', 
+			'What does Smithers like to collect?', 'Which band did NOT appear in Hullabalooza?', 'Who ran over Snowball I?', 'Who sang Happy Birthday to Mr. Burns?'],
+	answer: ['S-M-I-T-H-E-R-S', 'Tony Bennett', 'A hairdryer', 'Alice Cooper', 'Elvis Jagger Abdul-Jabbar', 
+			'God', 'Malibu Stacey Dolls', 'Hole', 'Clovis Quimby', 'The Ramones'],
+	choice1: ['L-O-V-E D-U-F-F', 'Elizabeth Taylor', 'The mayor gave it to him','Ozzy Osborne','Amanda Hugginkiss', 
+			'God', 'Vintage Driving Gloves', 'Hole', 'Ned Flanders', 'Marilyn Monroe'],
+	choice2: ['M-O-E-R-O-C-K-S', 'Tony Bennett', 'A battery', 'Slash', 'Elvis Jagger Abdul-Jabbar',
+			'Elton John', 'Rare British Pence', 'Cypress Hill', 'Chief Wiggum', 'The Ramones'],
+	choice3: ['S-M-I-T-H-E-R-S', 'Mick Jagger', 'A famous weightlifter','Alice Cooper', 'Edgar Van Hoover Poe', 
+			'Bleeding Gums Murphy', 'Krusty Burger Toys', 'Sonic Youth', 'Homer', 'Lisa Simpson'],
+	choice4: ['I-M-B-A-R-N-E-Y', 'Phil Hartman', 'A hairdryer','Steven Tyler', 'Seymour Butz', 
+			'Brett Farve', 'Malibu Stacey Dolls', 'Smashing Pumpkins', 'Clovis Quimby', '50 Cent'],
 
 	imageCorrect: ['assets/images/correct1.gif', 'assets/images/correct2.gif', 'assets/images/correct3.gif', 'assets/images/correct4.gif', 'assets/images/correct5.gif', 
 		'assets/images/correct6.gif', 'assets/images/correct7.gif', 'assets/images/correct8.gif', 'assets/images/correct9.gif', 'assets/images/correct10.gif'],
@@ -47,10 +62,9 @@ var quiz = {
 		clearInterval(intervalId);
 	};
 
-//Onload hides content except for red button to start and loads audio
-$("#warn").hide();
 $(".content").hide();
 $(".reveal").hide();
+$("#warn").hide();
 $("#warning").trigger('load');
 $("#theme").trigger('load');
 $("#wahoo").trigger('load');
@@ -111,6 +125,7 @@ $("#doh").trigger('load');
 	function nextQuestion() {
 		if (questionindex === quiz.question.length) {
 			result();
+			grades();
 			
 		} else {
 			timer = 10;
@@ -122,13 +137,25 @@ $("#doh").trigger('load');
 		}
 	};
 
+	function grades() {
+		if (correct >= 8) {
+		 	$("#grades").html("A+");
+		} 
+		else if ((correct <= 7) && (correct >= 5)) {
+			$("#grades").html("B");
+		} 
+		else if (correct <= 4) {
+			$("#grades").html("F (Ha ha!)"); 
+		} 
+	};
+
 	function result() {
 		$(".reveal").hide();
 		$(".result").show();
-		$("#correct").html("Cowabunga! You got " + correct + " correct!");
-		$("#wrong").html("Oops. You got " + wrong + " wrong :(");
-		$("#unanswered").html("Hmm... You left " + noAnswer + " unanswered.");
-		setTimeout(resetGame, 5000);
+		$("#correct").html("Correct Answers = " + correct);
+		$("#wrong").html("Wrong Answers = "+ wrong);
+		$("#unanswered").html("Not Answered = " + noAnswer);
+		setTimeout(resetGame, 6000);
 	};
 
 	function resetGame() {
