@@ -1,13 +1,5 @@
 $(document).ready(function() {
 
-$(".content").hide();
-$(".reveal").hide();
-$("#warn").hide();
-$("#warning").trigger('load');
-$("#theme").trigger('load');
-$("#wahoo").trigger('load');
-$("#doh").trigger('load');
-
 var timer = 10;
 var correct = 0;
 var wrong = 0;
