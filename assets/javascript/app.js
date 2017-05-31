@@ -54,6 +54,7 @@ var quiz = {
 		clearInterval(intervalId);
 	};
 
+//On load:
 $(".content").hide();
 $(".reveal").hide();
 $("#warn").hide();
@@ -62,6 +63,7 @@ $("#theme").trigger('load');
 $("#wahoo").trigger('load');
 $("#doh").trigger('load');
 
+//Click to start
 	$("#init").click( function() {
 		$("#warning").trigger('play');
 		$("#init").hide();
@@ -130,12 +132,15 @@ $("#doh").trigger('load');
 	};
 
 	function grades() {
-		if (correct >= 8) {
+		if (correct >= 9) {
 		 	$("#grades").html("A+");
 		} 
-		else if ((correct <= 7) && (correct >= 5)) {
+		else if ((correct <= 8) && (correct >= 7)) {
+			$("#grades").html("A");
+		}
+		else if ((correct <= 6) && (correct >= 5)) {
 			$("#grades").html("B");
-		} 
+		}  
 		else if (correct <= 4) {
 			$("#grades").html("F (Ha ha!)"); 
 		} 
